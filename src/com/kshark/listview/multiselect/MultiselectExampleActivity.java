@@ -23,6 +23,7 @@ public class MultiselectExampleActivity extends ListActivity {
 	  private static final String CHECK_STATES = "mylist:check_states";
 	  private boolean[] mCheckStates=null;
 	  private static String[] Content=null;
+	  private CustomAdapter mAdapter = new CustomAdapter();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class MultiselectExampleActivity extends ListActivity {
         }
         
        
-        setListAdapter(new CustomAdapter());
+        setListAdapter(mAdapter);
     }
     
     @Override
@@ -59,15 +60,15 @@ public class MultiselectExampleActivity extends ListActivity {
 			for(int i = 0 ; i<Content.length ; i++){
 				mCheckStates[i]=true;
 			}
-	        setListAdapter(new CustomAdapter());
-
+	        mAdapter.notifyDataSetChanged();  /*This is a hacky way to refresh listview but i have realised it 
+	                                      is a better option  as this works in all versions of android upto jellybean */
 			
 			break;
 		case R.id.unselectButton:
 			for(int i = 0 ; i<Content.length ; i++){
 				mCheckStates[i]=false;
 			}
-	        setListAdapter(new CustomAdapter());
+	        mAdapter.notifyDataSetChanged();
 
 			break;
 
