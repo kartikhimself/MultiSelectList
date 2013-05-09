@@ -60,15 +60,14 @@ public class MultiselectExampleActivity extends ListActivity {
 			for(int i = 0 ; i<Content.length ; i++){
 				mCheckStates[i]=true;
 			}
-	        mAdapter.notifyDataSetChanged();  /*This is a hacky way to refresh listview but i have realised it 
-	                                      is a better option  as this works in all versions of android upto jellybean */
+	        getListView.invalidateViews(); /*This is a hacky way to refresh listview but i have realised it is a better option  as this works in all versions of android upto jellybean */
 			
 			break;
 		case R.id.unselectButton:
 			for(int i = 0 ; i<Content.length ; i++){
 				mCheckStates[i]=false;
 			}
-	        mAdapter.notifyDataSetChanged();
+	        getListView.invalidateViews();
 
 			break;
 
