@@ -23,7 +23,7 @@ public class MultiselectExampleActivity extends ListActivity {
 	  private static final String CHECK_STATES = "mylist:check_states";
 	  private boolean[] mCheckStates=null;
 	  private static String[] Content=null;
-	  private CustomAdapter mAdapter = new CustomAdapter();
+	  private CustomAdapter mAdapter ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class MultiselectExampleActivity extends ListActivity {
             mCheckStates = new boolean[Content.length];
         }
         
-       
+        mAdapter = new CustomAdapter();
         setListAdapter(mAdapter);
     }
     
